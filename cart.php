@@ -1,4 +1,7 @@
+<?php
+    session_start();
 
+?>
 
 <!DOCTYPE html>
 <html>
@@ -25,11 +28,11 @@
         if(isset($_POST['submit'])) {
             $nummer = $_POST['nummer'];
             if(($nummer < 4) && ($nummer > 0)) {
-                setcookie("gekozenNummer", $nummer, time() + (60));
+                $_SESSION["gekozenNummer"] = $_POST['nummer'];
             }
         }
-        if(isset($_COOKIE["gekozenNummer"])) {
-            echo ($_COOKIE['gekozenNummer']);
+        if(isset($_SESSION["gekozenNummer"])) {
+            echo ($_SESSION['gekozenNummer']);
         }
 
 
